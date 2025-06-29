@@ -11,12 +11,6 @@ The goal is to mimic human driving behavior by using a convolutional neural netw
 
 ---
 
-## 🎥 Demo
-
-🚗 **[Watch Demo Video](#)** *(Add your YouTube link or GIF here)*
-
----
-
 ## 🧠 Model Architecture
 
 The model is inspired by NVIDIA's end-to-end self-driving car architecture. It includes:
@@ -35,23 +29,6 @@ The model is inspired by NVIDIA's end-to-end self-driving car architecture. It i
 - **Computer Vision**: OpenCV, matplotlib
 - **Simulator**: Udacity Self-Driving Car Simulator
 - **Libraries**: NumPy, Pandas, scikit-learn
-
----
-
-## 🗂️ Project Structure
-
-```
-autonomous-driving-cnn/
-├── data/
-│   ├── IMG/                       # Driving images
-│   └── driving_log.csv            # Image paths + steering data
-├── model.py                       # CNN model architecture
-├── train.py                       # Training script
-├── drive.py                       # Real-time inference for simulator
-├── utils.py                       # Preprocessing & augmentation
-├── model.h5                       # Trained model
-└── README.md                      # Project documentation
-```
 
 ---
 
@@ -79,74 +56,12 @@ Use Mean Squared Error (MSE) loss and the Adam optimizer to train a regression m
 ### 5. **Model Evaluation**
 Visualize loss curves and validate the model on unseen images.
 
-### 6. **Inference**
-Use `drive.py` to deploy the trained model. It runs in real-time with the simulator and controls the car automatically.
-
----
-
-## 🧪 Example: Preprocessing Function
-
-```python
-def img_preprocess(img):
-    img = img[60:-25, :, :]  # Crop sky and hood
-    img = cv2.resize(img, (200, 66))
-    img = img / 127.5 - 1.0  # Normalize to [-1, 1]
-    return img
-```
-
 ---
 
 ## 📈 Training Results
 
 | Metric       | Value     |
 |--------------|-----------|
-| Train Loss   | 0.0004    |
-| Val Loss     | 0.0006    |
+| Train Loss   | 0.0442    |
+| Val Loss     | 0.0303    |
 | Epochs       | 10        |
-
-*(Add your actual values after training)*
-
----
-
-## 🚀 How to Run
-
-### 🖥️ 1. Train the Model
-
-```bash
-python train.py
-```
-
-### 🕹️ 2. Run Simulator
-
-- Download [Udacity Self-Driving Car Simulator](https://github.com/udacity/self-driving-car-sim)
-- Open the simulator → Autonomous Mode
-
-### 🤖 3. Drive Autonomously
-
-```bash
-python drive.py model.h5
-```
-
----
-
-## 💡 Future Improvements
-
-- Add lane detection as a safety constraint
-- Use LSTM for temporal prediction
-- Deploy in Carla Simulator for real-world conditions
-- Add object detection (traffic signs, pedestrians)
-
----
-
-## 📚 References
-
-- NVIDIA: [End to End Learning for Self-Driving Cars](https://developer.nvidia.com/blog/deep-learning-self-driving-cars/)
-- [Udacity Self-Driving Car Simulator](https://github.com/udacity/self-driving-car-sim)
-
----
-
-## 👨‍💻 Author
-
-**Sourav Kirshan Lalan**  
-📧 souravkirshan401@gmail.com  
-🔗 [LinkedIn](https://linkedin.com/in/souravkirshan) | [GitHub](https://github.com/yourusername)
